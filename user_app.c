@@ -94,7 +94,8 @@ Promises:
 */
 void UserAppRun(void)
 {
-    LATA = LATA^0X01;
+    LATA = LATA+0x01;
+    
     u32 u32Counter= 0x45dfb;
             //286203;
     while (u32Counter>0){
