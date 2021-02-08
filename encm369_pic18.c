@@ -88,11 +88,11 @@ Promises:
 */
 void GpioSetup(void)
 {
-PORTA  = 0x00;       // Clear PORTA    
-LATA   = 0x00;       // Clear Data Latch     
+PORTA  = 0x00;       // Turn on only RA7  
+LATA   = 0x80;       // Clear Data Latch     
 ANSELA = 0x00;       // Enable digital drivers    
-TRISA  = 0xFE;       // Set RA[5:3] as inputs and set others as 
-  
+TRISA  = 0x00;       // Set RA[0:8] as outputs 
+
 } /* end GpioSetup() */
 
 
