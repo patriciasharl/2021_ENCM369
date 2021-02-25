@@ -98,6 +98,7 @@ void UserAppRun(void)
     
     u32 u32Counter= 0x45dfb;
             //286203;
+    //0x45dfb
     while (u32Counter>0){
         u32Counter--;
     }
