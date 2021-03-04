@@ -27278,11 +27278,17 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 2 3
-# 142 "./configuration.h" 2
-# 151 "./configuration.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
-# 151 "./configuration.h" 2
+# 143 "./configuration.h" 2
 
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
+# 152 "./configuration.h" 2
 # 1 "./typedefs.h" 1
 # 31 "./typedefs.h"
 typedef char CHAR;
@@ -27321,11 +27327,9 @@ typedef void(*fnCode_u16_type)(u16 x);
 
 
 typedef enum {ACTIVE_LOW = 0, ACTIVE_HIGH = 1} GpioActiveType;
-# 152 "./configuration.h" 2
-
-# 1 "./main.h" 1
 # 153 "./configuration.h" 2
-
+# 1 "./main.h" 1
+# 154 "./configuration.h" 2
 
 
 # 1 "./encm369_pic18.h" 1
@@ -27335,8 +27339,11 @@ void GpioSetup(void);
 
 void SysTickSetup(void);
 void SystemSleep(void);
-# 156 "./configuration.h" 2
 
+void TimeXus(u16 u16Microseconds_delay);
+
+void main();
+# 157 "./configuration.h" 2
 
 
 
@@ -27345,7 +27352,7 @@ void SystemSleep(void);
 # 27 "./user_app.h"
 void UserAppInitialize(void);
 void UserAppRun(void);
-# 161 "./configuration.h" 2
+# 162 "./configuration.h" 2
 # 26 "user_app.c" 2
 
 
@@ -27366,15 +27373,25 @@ extern volatile u32 G_u32SystemFlags;
 void UserAppInitialize(void)
 {
 
+    LATA = 0x80;
+
+
+    T0CON0= 0X90;
+    T0CON1= 0x54;
 
 }
-# 95 "user_app.c"
+# 100 "user_app.c"
 void UserAppRun(void)
 {
-    LATA = LATA^0X01;
-    u32 u32Counter= 0x45dfb;
 
-    while (u32Counter>0){
-        u32Counter--;
+
+
+
+
+     LATA = LATA^0X01;
+     static u16 u16Counter;
+    while (u16Counter<0x1F4){
+        u16Counter++;
     }
+# 122 "user_app.c"
 }

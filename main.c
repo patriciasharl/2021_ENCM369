@@ -60,6 +60,13 @@ void main(void)
     /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
+    TimeXus(0x03E8);// 1000 microseconds in a millisecond
+    
+    while ((PIR3 & 0X80) !=0X80)
+    {
+        // Do nothing and wait  until the 1 ms is up 
+    }
+    
     HEARTBEAT_ON();
     
   } /* end while(1) main super loop */

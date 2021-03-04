@@ -1,5 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"46095 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+"22627 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 22627: extern volatile unsigned char T0CON0 __attribute__((address(0x31A)));
+[v _T0CON0 `Vuc ~T0 @X0 0 e@794 ]
+"22373
+[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 22373: extern volatile unsigned char TMR0H __attribute__((address(0x319)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@793 ]
+"22235
+[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 22235: extern volatile unsigned char TMR0L __attribute__((address(0x318)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@792 ]
+"44870
+[; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 44870: extern volatile unsigned char PIR3 __attribute__((address(0x4B1)));
+[v _PIR3 `Vuc ~T0 @X0 0 e@1201 ]
+"46095
 [; ;C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 46095: extern volatile unsigned char PORTA __attribute__((address(0x4CE)));
 [v _PORTA `Vuc ~T0 @X0 0 e@1230 ]
 "45585
@@ -2614,57 +2626,93 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;encm369_pic18.c: 74: }
 [e :UE 2272 ]
 }
+"88
+[; ;encm369_pic18.c: 88: void TimeXus(u16 u16Microseconds_delay)
+[v _TimeXus `(v ~T0 @X0 1 ef1`us ]
 "89
-[; ;encm369_pic18.c: 89: void GpioSetup(void)
+[; ;encm369_pic18.c: 89: {
+{
+[e :U _TimeXus ]
+"88
+[; ;encm369_pic18.c: 88: void TimeXus(u16 u16Microseconds_delay)
+[v _u16Microseconds_delay `us ~T0 @X0 1 r1 ]
+"89
+[; ;encm369_pic18.c: 89: {
+[f ]
+"91
+[; ;encm369_pic18.c: 91:     u16 u16TimerValue= 0xFFFF - u16Microseconds_delay;
+[v _u16TimerValue `us ~T0 @X0 1 a ]
+[e = _u16TimerValue -> - -> 65535 `ui -> _u16Microseconds_delay `ui `us ]
+"94
+[; ;encm369_pic18.c: 94:     T0CON0 = T0CON0 & 0x7F;
+[e = _T0CON0 -> & -> _T0CON0 `i -> 127 `i `uc ]
+"96
+[; ;encm369_pic18.c: 96:     TMR0H = (u16TimerValue & 0xFF00)>>8;
+[e = _TMR0H -> >> & -> _u16TimerValue `ui -> 65280 `ui -> 8 `i `uc ]
+"97
+[; ;encm369_pic18.c: 97:     TMR0L= (u16TimerValue & 0x00FF);
+[e = _TMR0L -> & -> _u16TimerValue `ui -> -> 255 `i `ui `uc ]
+"99
+[; ;encm369_pic18.c: 99:     PIR3 = PIR3 & 0x7F;
+[e = _PIR3 -> & -> _PIR3 `i -> 127 `i `uc ]
+"101
+[; ;encm369_pic18.c: 101:     T0CON0= 0x90;
+[e = _T0CON0 -> -> 144 `i `uc ]
+"103
+[; ;encm369_pic18.c: 103: }
+[e :UE 2273 ]
+}
+"118
+[; ;encm369_pic18.c: 118: void GpioSetup(void)
 [v _GpioSetup `(v ~T0 @X0 1 ef ]
-"90
-[; ;encm369_pic18.c: 90: {
+"119
+[; ;encm369_pic18.c: 119: {
 {
 [e :U _GpioSetup ]
 [f ]
-"91
-[; ;encm369_pic18.c: 91: PORTA = 0x00;
+"120
+[; ;encm369_pic18.c: 120: PORTA = 0x00;
 [e = _PORTA -> -> 0 `i `uc ]
-"92
-[; ;encm369_pic18.c: 92: LATA = 0x80;
+"121
+[; ;encm369_pic18.c: 121: LATA = 0x80;
 [e = _LATA -> -> 128 `i `uc ]
-"93
-[; ;encm369_pic18.c: 93: ANSELA = 0x00;
+"122
+[; ;encm369_pic18.c: 122: ANSELA = 0x00;
 [e = _ANSELA -> -> 0 `i `uc ]
-"94
-[; ;encm369_pic18.c: 94: TRISA = 0x00;
+"123
+[; ;encm369_pic18.c: 123: TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
-"96
-[; ;encm369_pic18.c: 96: }
-[e :UE 2273 ]
+"125
+[; ;encm369_pic18.c: 125: }
+[e :UE 2274 ]
 }
-"111
-[; ;encm369_pic18.c: 111: void SysTickSetup(void)
+"140
+[; ;encm369_pic18.c: 140: void SysTickSetup(void)
 [v _SysTickSetup `(v ~T0 @X0 1 ef ]
-"112
-[; ;encm369_pic18.c: 112: {
+"141
+[; ;encm369_pic18.c: 141: {
 {
 [e :U _SysTickSetup ]
 [f ]
-"113
-[; ;encm369_pic18.c: 113:   G_u32SystemTime1ms = 0;
+"142
+[; ;encm369_pic18.c: 142:   G_u32SystemTime1ms = 0;
 [e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
-"114
-[; ;encm369_pic18.c: 114:   G_u32SystemTime1s = 0;
+"143
+[; ;encm369_pic18.c: 143:   G_u32SystemTime1s = 0;
 [e = _G_u32SystemTime1s -> -> -> 0 `i `l `ul ]
-"116
-[; ;encm369_pic18.c: 116: }
-[e :UE 2274 ]
+"145
+[; ;encm369_pic18.c: 145: }
+[e :UE 2275 ]
 }
-"133
-[; ;encm369_pic18.c: 133: void SystemSleep(void)
+"162
+[; ;encm369_pic18.c: 162: void SystemSleep(void)
 [v _SystemSleep `(v ~T0 @X0 1 ef ]
-"134
-[; ;encm369_pic18.c: 134: {
+"163
+[; ;encm369_pic18.c: 163: {
 {
 [e :U _SystemSleep ]
 [f ]
-"136
-[; ;encm369_pic18.c: 136: }
-[e :UE 2275 ]
+"165
+[; ;encm369_pic18.c: 165: }
+[e :UE 2276 ]
 }

@@ -75,8 +75,13 @@ Promises:
 */
 void UserAppInitialize(void)
 {
-
-
+/*LED initialization*/
+    LATA = 0x01;  
+    /*Timer0 control register initialization to turn timer on, asynch mode, 16 bit 
+     * Fosc/4, 1:16 prescaler, 1:1 postscaler */
+    T0CON0= 0X90;
+    T0CON1= 0x54;
+    
 } /* end UserAppInitialize() */
 
   
@@ -94,13 +99,23 @@ Promises:
 */
 void UserAppRun(void)
 {
-    LATA = LATA+0x01;
     
-    u32 u32Counter= 0x45dfb;
-            //286203;
-    while (u32Counter>0){
-        u32Counter--;
+ static u16 u16Counter = 0x00; // sets counter to 0
+    static u8 u8Index = 0;
+    u8 au8Pattern[] = {0x01,0x02,0x04,0x8,0x10,0x20};
+    if(u16Counter == 0x1F4)
+    {
+        u16Counter =0;
+        LATA = au8Pattern[u8Index];
+        u8Index++;
+        if(u8Index == 6) 
+        {
+            u8Index = 0;
+        }
     }
+    u16Counter++;        
+ 
+   
 } /* end UserAppRun */
 
 

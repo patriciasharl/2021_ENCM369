@@ -73,6 +73,35 @@ void ClockSetup(void)
   
 } /* end ClockSetup */
 
+/*-------------------------------------------------------------
+------
+void TimeXus(INPUT_PARAMETER_)
+Sets Timer0 to count u16Microseconds_
+Requires:
+-Timer0 configured such that each timer tick is 1 microsecond
+-INPUT_PARAMETER_ is the value in microseconds to time from 1 to 65535
+Promises:
+-Pre-loads TMR0H:L to clock out desired period
+-TMR0IF cleared
+-Timer0 enabled
+*/
+void TimeXus(u16 u16Microseconds_delay)
+{
+    
+    u16 u16TimerValue= 0xFFFF - u16Microseconds_delay;
+/* OPTIONAL: range check and handle edge cases */
+/* Disable the timer during config */
+    T0CON0 = T0CON0 & 0x7F;//7F= 01111111. bitmask only the MSB (TMR0IF)
+/* Preload TMR0H and TMR0L based on u16TimeXus */
+    TMR0H = (u16TimerValue & 0xFF00)>>8;//bit mask all but the 8 MSB and dividing 0x10 shifts right 4 bits
+    TMR0L= (u16TimerValue & 0x00FF);// bitmask all but the 8 LSB
+/* Clear TMR0IF and enable Timer 0 */
+    PIR3 = PIR3 & 0x7F;// 7F= 01111111. bitmask only the MSB (TMR0IF)
+/*enable Timer 0 */
+    T0CON0= 0x90;
+    
+} /* end TimeXus () */
+
 
 /*!---------------------------------------------------------------------------------------------------------------------
 @fn void GpioSetup(void)

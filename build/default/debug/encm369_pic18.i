@@ -27278,11 +27278,17 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 2 3
-# 142 "./configuration.h" 2
-# 151 "./configuration.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
-# 151 "./configuration.h" 2
+# 143 "./configuration.h" 2
 
+
+
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
+# 152 "./configuration.h" 2
 # 1 "./typedefs.h" 1
 # 31 "./typedefs.h"
 typedef char CHAR;
@@ -27321,11 +27327,9 @@ typedef void(*fnCode_u16_type)(u16 x);
 
 
 typedef enum {ACTIVE_LOW = 0, ACTIVE_HIGH = 1} GpioActiveType;
-# 152 "./configuration.h" 2
-
-# 1 "./main.h" 1
 # 153 "./configuration.h" 2
-
+# 1 "./main.h" 1
+# 154 "./configuration.h" 2
 
 
 # 1 "./encm369_pic18.h" 1
@@ -27335,8 +27339,11 @@ void GpioSetup(void);
 
 void SysTickSetup(void);
 void SystemSleep(void);
-# 156 "./configuration.h" 2
 
+void TimeXus(u16 u16Microseconds_delay);
+
+void main();
+# 157 "./configuration.h" 2
 
 
 
@@ -27345,7 +27352,7 @@ void SystemSleep(void);
 # 27 "./user_app.h"
 void UserAppInitialize(void);
 void UserAppRun(void);
-# 161 "./configuration.h" 2
+# 162 "./configuration.h" 2
 # 24 "encm369_pic18.c" 2
 # 37 "encm369_pic18.c"
 extern volatile u32 G_u32SystemTime1ms;
@@ -27357,23 +27364,40 @@ void ClockSetup(void)
 
 
 }
-# 89 "encm369_pic18.c"
+# 88 "encm369_pic18.c"
+void TimeXus(u16 u16Microseconds_delay)
+{
+
+    u16 u16TimerValue= 0xFFFF - u16Microseconds_delay;
+
+
+    T0CON0 = T0CON0 & 0x7F;
+
+    TMR0H = (u16TimerValue & 0xFF00)>>8;
+    TMR0L= (u16TimerValue & 0x00FF);
+
+    PIR3 = PIR3 & 0x7F;
+
+    T0CON0= 0x90;
+
+}
+# 118 "encm369_pic18.c"
 void GpioSetup(void)
 {
-PORTA = 0x80;
-LATA = 0x00;
+PORTA = 0x00;
+LATA = 0x80;
 ANSELA = 0x00;
 TRISA = 0x00;
 
 }
-# 111 "encm369_pic18.c"
+# 140 "encm369_pic18.c"
 void SysTickSetup(void)
 {
   G_u32SystemTime1ms = 0;
   G_u32SystemTime1s = 0;
 
 }
-# 133 "encm369_pic18.c"
+# 162 "encm369_pic18.c"
 void SystemSleep(void)
 {
 

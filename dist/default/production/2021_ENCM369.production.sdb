@@ -29,21 +29,32 @@
 [v ___omul __omul `(uo  1 e 8 0 ]
 "70 C:\GITHUB\2021_ENCM369\encm369_pic18.c
 [v _ClockSetup ClockSetup `(v  1 e 1 0 ]
-"89
+"88
+[v _TimeXus TimeXus `(v  1 e 1 0 ]
+"118
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
-"111
+"140
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
-"133
+"162
 [v _SystemSleep SystemSleep `(v  1 e 1 0 ]
 "35 C:\GITHUB\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 "76 C:\GITHUB\2021_ENCM369\user_app.c
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
-"95
+"100
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
-"37918 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+"22235 C:/Program Files/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+[v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
+"22373
+[v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
+"22627
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @794 ]
+"22725
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @795 ]
 "37918
 [v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
+"44870
+[v _PIR3 PIR3 `VEuc  1 e 1 @1201 ]
 "45585
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
 "45840
@@ -61,34 +72,48 @@
 "35 C:\GITHUB\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"67
+"74
 } 0
-"95 C:\GITHUB\2021_ENCM369\user_app.c
+"100 C:\GITHUB\2021_ENCM369\user_app.c
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
-"99
-[v UserAppRun@u32Counter u32Counter `ul  1 a 4 0 ]
+"105
+[v UserAppRun@au8Pattern au8Pattern `[6]uc  1 a 6 0 ]
+"103
+[v UserAppRun@u16Counter u16Counter `us  1 s 2 u16Counter ]
 "104
+[v UserAppRun@u8Index u8Index `uc  1 s 1 u8Index ]
+[v UserAppRun@F15925 F15925 `[6]uc  1 s 6 F15925 ]
+"119
 } 0
 "76
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
 {
-"80
+"85
 } 0
-"133 C:\GITHUB\2021_ENCM369\encm369_pic18.c
+"88 C:\GITHUB\2021_ENCM369\encm369_pic18.c
+[v _TimeXus TimeXus `(v  1 e 1 0 ]
+{
+"91
+[v TimeXus@u16TimerValue u16TimerValue `us  1 a 2 2 ]
+"88
+[v TimeXus@u16Microseconds_delay u16Microseconds_delay `us  1 p 2 0 ]
+"103
+} 0
+"162
 [v _SystemSleep SystemSleep `(v  1 e 1 0 ]
 {
-"136
+"165
 } 0
-"111
+"140
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
 {
-"116
+"145
 } 0
-"89
+"118
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
 {
-"96
+"125
 } 0
 "70
 [v _ClockSetup ClockSetup `(v  1 e 1 0 ]
