@@ -117,11 +117,12 @@ Promises:
 */
 void GpioSetup(void)
 {
-PORTA  = 0x00;       // Turn on only RA7  
-LATA   = 0x80;       // Clear Data Latch     
+       // Clear Data Latch     
 ANSELA = 0x00;       // Enable digital drivers    
 TRISA  = 0x00;       // Set RA[0:8] as outputs 
 
+
+DAC1CON = 0xA0;
 } /* end GpioSetup() */
 
 

@@ -27393,12 +27393,9 @@ void main(void)
 
 
     UserAppRun();
-
-
-
     (LATA &=0X7F);
     SystemSleep();
-    TimeXus(0x03E8);
+    TimeXus(10);
 
     while ((PIR3 & 0X80) !=0X80)
     {
@@ -27406,7 +27403,7 @@ void main(void)
     }
 
     (LATA != 0X80);
-
+# 84 "main.c"
   }
 
 }

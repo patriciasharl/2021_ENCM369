@@ -55,12 +55,9 @@ void main(void)
        
     /* Applications */
     UserAppRun();
-   
-     
-    /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
-    TimeXus(0x03E8);// 1000 microseconds in a millisecond
+    TimeXus(10);// 1000 microseconds in a millisecond
     
     while ((PIR3 & 0X80) !=0X80)
     {
@@ -68,8 +65,23 @@ void main(void)
     }
     
     HEARTBEAT_ON();
+   
+#if 0
+    /* System sleep */
     
-  } /* end while(1) main super loop */
+    //SystemSleep();
+    /* System sleep */
+    //HEARTBEAT_OFF();
+   // SystemSleep();
+    TimeXus(2);   //delay that obtains frequency closest to 1.00kHz
+   // while((PIR3 & 0x80) == 0x00){
+    
+    //HEARTBEAT_ON();
+    
+   
+#endif 
+    
+  }
   
 } /* end main() */
 
