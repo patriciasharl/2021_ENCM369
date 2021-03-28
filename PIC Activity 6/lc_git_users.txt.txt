@@ -1,0 +1,7 @@
+Patricia,Sharleen,patricia.sharleen@ucalgary.ca,2021_ENCM369
+ENCM 369,Geoffrey Messier,jrlong@ucalgary.ca, UofCencm369,2021_ENCM369
+Netra,Patel,netra.patel@ucalgary.ca,Netra-Patel,2021_ENCM369
+Baker,Ryan,ryan.baker1@ucalgary.ca,ryanbakerucalgary,2021_ENCM369
+Goni,Matzliach,goni.matzliach@ucalgary.ca,goniUofC,2021_ENCM369
+Viet Trung,Dau,viettrung.dau@ucalgary.ca,vtdau,2021_ENCM369
+Jenna,McCormick,jenna.mccormick@ucalgary.ca,JennaMcCormick,2021_ENCM369
